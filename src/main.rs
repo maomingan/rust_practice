@@ -2,6 +2,8 @@ mod variables;
 mod datatype;
 mod control;
 mod func;
+mod refstring;
+mod slice;
 
 use variables::variables;
 use datatype::datatype;
@@ -26,19 +28,10 @@ fn main() {
     // control::control_while();
     // control::control_for();
 
-    let mut s = "a";
-    s = "b";
-    let s2 = s;
-    println!("s is {}", s);
-    let ss = String::from("aa");
-    // let ss2 = ss;
-    let ss2 = ss.clone();
-    println!("ss is {}", ss);
-    test_string(ss);
-    println!("{}", ss);
+    // 五、控制权、引用借用、slice
+    // refstring::ref_test();
+    // slice::test_err_slice();
+    slice::test_slice();
 
-}
 
-fn test_string(str: String){
-    println!("test_string : {}", str);
 }

@@ -4,6 +4,7 @@ mod control;
 mod func;
 mod refstring;
 mod slice;
+mod struct_demo;
 
 use variables::variables;
 use datatype::datatype;
@@ -31,7 +32,11 @@ fn main() {
     // 五、控制权、引用借用、slice
     // refstring::ref_test();
     // slice::test_err_slice();
-    slice::test_slice();
+    // slice::test_slice();
 
+    // 六、结构体
+    // struct_demo::test();
+    // struct_demo::test2();
+    struct_demo::test3();
 
 }

@@ -1,0 +1,53 @@
+{
+    // 这是配置文件的版本号，通常保持 "0.2.0" 即可
+    "version": "0.2.0",
+    "configurations": [
+        {
+            // type: 调试器的类型
+            // 作用：这是最重要的设置。它告诉 Cursor/VS Code 使用哪个调试器扩展。
+            // "lldb" 代表我们要使用 CodeLLDB 扩展，这是调试 Rust 代码的首选。
+            "type": "lldb",
+
+            // request: 请求类型
+            // 作用：告诉调试器要做什么。
+            // "launch" 表示从头开始启动你的程序并进行调试。
+            // 另一个常见选项是 "attach"，用于附加到已经在运行的程序上。
+            "request": "launch",
+
+            // name: 配置名称
+            // 作用：这是一个描述性的名字，会显示在“运行和调试”面板的下拉菜单中。
+            // 你可以把它改成任何你喜欢的名字，比如 "调试主程序"。
+            "name": "Debug executable 'rust_practice'",
+
+            // cargo: Cargo 集成配置
+            // 作用：这是一个由 CodeLLDB 扩展提供的特殊配置块，用于和 Rust 的构建工具 Cargo 无缝集成。
+            "cargo": {
+                // args: 传递给 Cargo 的参数
+                // 作用：这个数组里的参数会在每次调试前传递给 cargo 命令。
+                // 这里的配置相当于在终端执行 `cargo build --bin=rust_practice --package=rust_practice`。
+                "args": [
+                    "build", // 告诉 Cargo 执行构建操作。开发构建会自动包含调试信息。
+                    "--bin=rust_practice", // --bin 指定要构建的可执行文件名。
+                    "--package=rust_practice" // --package 指定要构建的包名，在多包项目中很有用。
+                ],
+                // filter: 筛选要调试的程序
+                // 作用：当 Cargo 构建完成后，这个过滤器告诉 CodeLLDB 具体要运行和调试哪一个文件。
+                "filter": {
+                    "name": "rust_practice", // 要调试的程序的名字。
+                    "kind": "bin" // 程序的类型，"bin" 代表是一个二进制可执行文件。
+                }
+            },
+
+            // args: 传递给你自己程序的参数
+            // 作用：这个数组用于指定启动时传递给你自己程序的命令行参数。
+            // 例如，如果你的程序需要一个文件名作为输入，你可以写成 `"args": ["my_file.txt"]`。
+            "args": [],
+
+            // cwd: 当前工作目录 (Current Working Directory)
+            // 作用：设置你的程序运行时的工作目录。
+            // "${workspaceFolder}" 是一个预设变量，代表你项目打开的根目录。
+            // 这能确保你的代码如果使用相对路径读写文件，路径是相对于项目根目录的。
+            "cwd": "${workspaceFolder}"
+        }
+    ]
+}

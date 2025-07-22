@@ -9,6 +9,9 @@ mod struct_demo;
 use variables::variables;
 use datatype::datatype;
 
+mod garden;
+use garden::vegetables::Asparagus;
+
 fn main() {
     println!("Hello, world!");
     println!("-------------------------");
@@ -35,8 +38,14 @@ fn main() {
     // slice::test_slice();
 
     // 六、结构体
-    struct_demo::test();
-    struct_demo::test2();
-    struct_demo::test3();
+    // struct_demo::test();
+    // struct_demo::test2();
+    // struct_demo::test3();
+
+    // 七、模块
+    let asparagus = Asparagus::new(String::from("白菜"));
+    asparagus.test();
+
+
 
 }

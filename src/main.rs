@@ -35,8 +35,8 @@ fn main() {
     // slice::test_slice();
 
     // 六、结构体
-    // struct_demo::test();
-    // struct_demo::test2();
+    struct_demo::test();
+    struct_demo::test2();
     struct_demo::test3();
 
 }
